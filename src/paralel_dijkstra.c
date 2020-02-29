@@ -15,10 +15,35 @@ void Hello();
 
 int main(int argc, char *argv[]){
     int thread_count = strtol(argv[1], NULL, 10);
+    struct timeval start, end;
+    int **short_dis;
+    int **graf;
+    int N;
 
-    #pragma omp parallel num_threads(thread_count)
-    Hello();
+    printf( "Enter amount of Node : ");
+    scanf("%d", &N);
+    
+    graf = initializeGraf(N);
 
+    short_dis = (int **)malloc(N * sizeof(int*));
+    for(int i = 0; i < N; i++) short_dis[i] = (int *)malloc(N * sizeof(int));
+
+    gettimeofday(&start, NULL);
+
+    #pragma omp parallel for num_threads(thread_count)
+        for (int i = 0; i < N; i++){
+            short_dis[i] = dijkstra(graf, N, i);
+        }
+    
+    gettimeofday(&end, NULL);
+
+    printOutput(short_dis,N,"tesParalel.txt");
+
+    int exectime = ((end.tv_sec - start.tv_sec) *1000000) + (end.tv_usec - start.tv_usec);
+    printf("Execution time : %d microseconds\n", exectime);
+
+    freeMatrix(short_dis, N);
+    freeMatrix(graf, N);
     return 0;
 }
 
