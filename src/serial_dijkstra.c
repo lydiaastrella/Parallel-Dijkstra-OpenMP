@@ -100,9 +100,13 @@ int* dijkstra(int** graf, int N, int src){
 }
 
 int main(){
-    int N = 100;
+    int N;
     int ** graf;
     struct timeval start, end;
+
+    printf( "Enter amount of Node : ");
+    scanf("%d", &N);
+
     graf = initializeGraf(N);
     int **short_dis = (int **)malloc(N * sizeof(int*));
     for(int i = 0; i < N; i++) short_dis[i] = (int *)malloc(N * sizeof(int));
