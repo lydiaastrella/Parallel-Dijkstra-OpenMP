@@ -1,10 +1,3 @@
-Petunjuk penggunaan program.
-Pembagian tugas. Sampaikan dalam list pengerjaan untuk setiap mahasiswa. Sebagai contoh: XXXX mengerjakan fungsi YYYY, ZZZZ, dan YYZZ.
-Deskripsi solusi paralel. Berikan ilustrasi jika perlu.
-Analisis solusi yang anda berikan. Apakah mungkin terdapat solusi yang memberikan kinerja lebih baik?
-Jumlah thread yang digunakan. Kenapa anda memilih angka tersebut?
-Pengukuran kinerja untuk tiap kasus uji (jumlah N pada graf) dibandingkan dengan dijkstra algorithm serial.
-Analisis perbandingan kinerja serial dan paralel. Analisis yang diharapkan adalah analisis yang minimal dapat menjelaskan setiap hasil pengukuran kinerja sebelumnya. 
 # Petunjuk Penggunaan Program
 Untuk menjalankan program serial, gunakan perintah ‘make serial’.
 Untuk menjalankan program paralel dengan jumlah thread 6, gunakan perintah ‘make paralel’.
